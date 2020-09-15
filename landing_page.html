@@ -20,13 +20,15 @@
             align-items: center;
         }
         .box {
+            width: 90%;
             box-shadow: 10px 10px black;
             background-color: yellow;
             color: black;
             text-shadow: 2px 2px pink;
-            min-width: 400px;
-            min-height: 200px;
-            max-width: 500px;
+            max-width: 700px;
+            padding: 10px;
+            margin-bottom: 20px;
+            min-height: 100px;
         }
         .self-intro {
             margin: 10px;
@@ -34,9 +36,6 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
-        }
-        .intro-text {
-            padding: 10px;
         }
         #my-pic {
             width: 40vh;
@@ -48,7 +47,10 @@
             <div></div>
             <div class="self-intro">
                 <img id="my-pic" src="my_pic.png"/>
-                <div class="intro-text box">
+            </div>
+            <div class="rows">
+                <div class="box">
+                    <h2>About me</h2>
                     Hello, my name is Jihyo Kim. I was born and raised in Korea.
                     <br/>
                     Now I am living in Vancouver and studying Computer Systems Technology at British Columbia Insitute of Technology.
@@ -61,9 +63,30 @@
                         Github: <a href="https://github.com/kimjihyo">https://github.com/kimjihyo</a>
                     </div>
                 </div>
-            </div>
-            <div class="box">
-                <h2>Homework</h2>
+                <div class="box">
+                    <h2>Courses</h2>
+                    <ul style="margin-left: 30px;">
+                        <li>COMP-4537</li>
+                        <li>COMP-4735</li>
+                        <li>COMP-4983</li>
+                        <li>COMP-4989</li>
+                        <li>BLAW-3600</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h2>COMP-4537 HW</h2>
+                    <ul style="margin-left: 30px;">
+                        <li>
+                            <a href="/comp4537/labs/1/quizQuestions/index.html">Lab1 Hard-Coded-Quiz</a>
+                        </li>
+                        <li>
+                            <a href="#">Lab2</a>
+                        </li>
+                        <li>
+                            <a href="#">Lab3</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

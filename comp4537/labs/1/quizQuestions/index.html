@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+        .question {
+            padding: 20px;
+        }
+        .red-text {
+            color: red;
+        }
+        .blue-text {
+            color: blue;
+        }
+        .code-snippet {
+            margin: 10px 0px;
+        }
+    </style>
+    <div class="question">
+        <span>1) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span class="red-text">let</span> mul = 2; <br/>
+            <span class="blue-text">for</span> (<span class="red-text">let</span> i = 3; i < 5; ++i) { <br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;mul = mul * i; <br/>
+            } <br/>
+            <span class="blue-text">console</span>.log(mul);
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="22"/>
+                <label for="22">22</label>
+            </div>
+            <div>
+                <input type="radio" value="33"/>
+                <label for="33">33</label>
+            </div>
+            <div>
+                <input type="radio" value="44"/>
+                <label for="44">44</label>
+            </div>
+            <div>
+                <input type="radio" value="24"/>
+                <label for="24">24</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
