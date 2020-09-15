@@ -54,5 +54,119 @@
             </div>
         </div>
     </div>
+    <div class="question">
+        <span>2) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span class="red-text">let</span> a = [1, 2, 3, 4, 5]; <br/>
+            a.splice(3, 1); <br/>
+            <span class="blue-text">console</span>.log(a);
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q2"/>
+                <label for="1">[1, 2, 3, 4, 5]</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q2"/>
+                <label for="2">[1, 3, 4, 5]</label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q2"/>
+                <label for="3">[1, 2, 4, 5]</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q2"/>
+                <label for="4">[1, 2, 3, 5]</label>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <span>3) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span class="red-text">let</span> a = [1, 2, 3, 4, 5]; <br/>
+            a.map((e) => <span class="blue-text">console</span>.log(e)); <br/>
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q3"/>
+                <label for="1">[1, 2, 3, 4, 5]</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q3"/>
+                <label for="2">
+                    <p>
+                        1<br/>
+                        2<br/>
+                        3<br/>
+                        4<br/>
+                        5<br/>
+                    </p>
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q3"/>
+                <label for="3">5</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q3"/>
+                <label for="4">Nothing printed</label>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <span>4) What is a javascript code to modify inner html of a div tag with a class name of "hello"</span>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q4"/>
+                <label for="1">
+                    hello.innerHTML = "ez"
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q4"/>
+                <label for="2">
+                    document.getElementByID("hello").innerHTML = "ez"
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q3"/>
+                <label for="3">
+                    document.getElementsByClassName("hello").innerHTML = "ez"
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q3"/>
+                <label for="4">
+                    document.getElementsByClassName("hello")[0].innerHTML = "ez"
+                </label>
+            </div>
+        </div>
+    </div>
+        <div class="question">
+        <span>5) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span class="red-text">let</span> a = {executeMe: () => <span class="blue-text">console</span>.log('hello')), } <br/>
+            a.executeMe = () => <span class="blue-text">console</span>.log('yolo')); <br/>
+            a.executeMe();
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q5"/>
+                <label for="1">hello</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q5"/>
+                <label for="2">yolo</label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q5"/>
+                <label for="3">yolo hello</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q5"/>
+                <label for="4">Nothing printed</label>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
