@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #0e1111;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #scoreBoard {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 40px;
+            padding: 20px;
+            background-color: #ffffff50;
+            border-radius: 10%;
+        }
+        #scoreRow {
+            display: flex;
+            align-items: center;
+        }
+        #scoreLabel {
+            margin-right: 0.5rem;
+        }
+        #score {
+            font-weight: bold;
+        }
+        #terminateButton {
+            border-radius: 4px;
+            border: 1px solid white;
+            padding: 10px;
+            margin-top: 1rem;
+        }
+        #terminateButton:hover {
+            cursor: pointer;
+        }
+        .scoreText {
+            font-size: 20px;
+        }
+        #container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #grid {
+            background-color: #663300;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10%;
+        }
+        .row {
+            display: flex;
+        }
+        .col {
+            display: block;
+            width: 8vw;
+            height: 8vw;
+            max-width: 100px;
+            max-height: 100px;
+            margin: 0.5vw;
+            background-color: #ffffff80;
+            transition: background-color 0.2s;
+            border-radius: 8px;
+        }
+        .col.click {
+            animation: push 0.3s linear 1;
+        }
+        .col.correct {
+            background-color: #2196f3;
+            transition: background-color 0.2s;
+        }
+        .col.correct:not(.click) {
+            animation: pulse 0.5s linear 1;
+        }
+        .col.wrong {
+            background-color: #f44336;
+            transition: background-color 0.2s;
+        }
+        .col.white {
+            background-color: #ffffff80;
+            transition: background-color 0.5s;
+            animation: spin 1s linear 1, spin 1s linear 1;
+        }
+        .modal {
+            display: none;
+            position: absolute;
+            width: 40vw;
+            height: 220px;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 8px;
+            animation: popUp 0.35s linear 1;
+        }
+        .modalContentView {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .contentRow {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 20px;
+            padding: 5%;
+        }
+        .actionRow {
+            display: flex;
+            flex: 0.2;
+            color: black;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .actionButton {
+            margin: 0 5%;
+            background-color: dimgrey;
+            padding: 10px;
+            color: white;
+            border-radius: 8px;
+        }
+        .actionButton:hover {
+            cursor: pointer;
+        }
+        @keyframes push{
+            50%  {transform: scale(0.8);}
+        }
+        @keyframes pulse{
+            25%  {transform: scale(0.9);}
+            75%  {transform: scale(1.05);}
+        }
+        @keyframes popUp {
+            0% {transform: scale(0);}
+            100% {transform: scale(1);}
+        }
+        @keyframes spin { 50% { -webkit-transform: rotate(90deg); transform:rotate(90deg) scale(0.6); } }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="scoreBoard">
+            <div id="scoreRow">
+                <div id="scoreLabel" class="scoreText">Score: </div>
+                <div id="score" class="scoreText">0</div>
+            </div>
+            <div id="terminateButton">
+                Terminate
+            </div>
+        </div>
+        <div id="grid">
+        </div>
+        <div class="modal">
+            <div class="modalContentView">
+                <div class="contentRow">
+                    Are you sure you want to terminate?
+                </div>
+                <div class="actionRow">
+                    <div class="actionButton">Terminate</div>
+                    <div id="resumeButton" class="actionButton">Resume</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('terminateButton').onclick = () => {
+            toggleModal(true);
+        }
+        document.getElementById('resumeButton').onclick = () => {
+            toggleModal(false);
+        }
+        let gameManager = new GameManager();
+        gameManager.startOver();
+    </script>
+</body>
+</html>
