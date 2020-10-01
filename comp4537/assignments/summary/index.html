@@ -28,6 +28,14 @@
     }
     .contentRow {
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .scoreText {
+        font-weight: bold;
+        text-align: center;
+        font-size: 24px;
     }
     .actionRow {
         display: flex;
@@ -42,6 +50,10 @@
         border: 3px solid black;
         font-weight: bolder;
     }
+    .space {
+        width: 10px;
+        height: 10px;
+    }
     .button:hover {
         cursor: pointer;
     }
@@ -49,18 +61,25 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <div class="contentRow"></div>
+            <div class="contentRow">
+                <div class="scoreText">
+                    Your score is <span id="score"></span>
+                </div>
+            </div>
             <div class="actionRow">
+                <div class="button">SUBMIT</div>
+                <div class="space"></div>
                 <div id="restartButton" class="button">RESTART</div>
             </div>
         </div>
     </div>
     <script>
-        console.log(getCookie('score'));
+        const score = getCookie('score');
         const restartButton = document.getElementById('restartButton');
         restartButton.onclick = () => {
             window.location.href = '../index.html';
         };
+        document.getElementById('score').innerHTML = score;
     </script>
 </body>
 </html>
