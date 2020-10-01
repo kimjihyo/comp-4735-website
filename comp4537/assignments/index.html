@@ -170,21 +170,29 @@
                     Are you sure you want to terminate?
                 </div>
                 <div class="actionRow">
-                    <div class="actionButton">Terminate</div>
+                    <div id="terminateButtonInModal" class="actionButton">Terminate</div>
                     <div id="resumeButton" class="actionButton">Resume</div>
                 </div>
             </div>
         </div>
     </div>
     <script>
+        let gameManager = new GameManager();
+        gameManager.startOver();
+
         document.getElementById('terminateButton').onclick = () => {
             toggleModal(true);
         }
+
         document.getElementById('resumeButton').onclick = () => {
             toggleModal(false);
         }
-        let gameManager = new GameManager();
-        gameManager.startOver();
+
+        document.getElementById('terminateButtonInModal').onclick = () => {
+            // document.cookie = `score=${gameManager.globalScore}`;
+            setCookie('score', gameManager.globalScore, 1);
+            window.location.href = './summary/index.html';
+        }
     </script>
 </body>
 </html>
