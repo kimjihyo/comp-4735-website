@@ -1,10 +1,11 @@
 class GameManager {
   constructor() {
+    this.currentGridDegree = 0;
     this.currentGameDiffucultyIndex = -1;
     this.gameDifficulty = [
       {
         gridSizeX: 3,
-        gridSizeY: 3,
+        gridSizeY: 2,
         nTiles: 4,
       },
       {
@@ -14,22 +15,27 @@ class GameManager {
       },
       {
         gridSizeX: 4,
-        gridSizeY: 4,
+        gridSizeY: 3,
         nTiles: 8,
       },
       {
-        gridSizeX: 5,
+        gridSizeX: 4,
         gridSizeY: 4,
         nTiles: 10,
       },
       {
-        gridSizeX: 5,
+        gridSizeX: 4,
         gridSizeY: 5,
         nTiles: 12,
       },
       {
-        gridSizeX: 6,
+        gridSizeX: 4,
         gridSizeY: 5,
+        nTiles: 15,
+      },
+      {
+        gridSizeX: 4,
+        gridSizeY: 7,
         nTiles: 15,
       },
     ];
@@ -89,6 +95,8 @@ class GameManager {
       this.score += 1;
       if (this.score === this.nAnswers) {
         setTimeout(() => {
+          this.currentGridDegree += 90;
+          rotateGrid(this.currentGridDegree);
           this.markCellsWhite();
           setTimeout(() => this.startOver(), 1200);
         }, 200)
@@ -144,7 +152,7 @@ class GameManager {
 
   startOver = () => {
     if (this.isClearedWithoutError) {
-      if (this.currentGameDiffucultyIndex < this.gameDifficulty.length) {
+      if (this.currentGameDiffucultyIndex < this.gameDifficulty.length - 1) {
         this.currentGameDiffucultyIndex++;
       }
     } else {
@@ -189,6 +197,11 @@ const getSample = (n, a) => {
     temp -= 1;
   }
   return array;
+}
+
+const rotateGrid = (currentDegree) => {
+  const grid = document.getElementById('grid');
+  grid.style.transform = `rotate(${currentDegree}deg)`;
 }
 
 const toggleModal = (shouldShowModal) => {

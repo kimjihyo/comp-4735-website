@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"">
     <title>Leaderboard</title>
 </head>
 <body>
-    Leaderboard
+    <div class="container">
+        <div id="leaderboard">
+            <div class="titleRow">
+                Leaderboard
+            </div>
+            <div class="rankingRow">
+                <div class="individualRankingRow">
+                    <div class="rankingNameText" style="font-weight: bold;">Name</div>
+                    <div class="rankingScoreText" style="font-weight: bold;">Score</div>
+                </div>
+                <hr />
+            </div>
+            <div class="actionRow">
+                <div id="restartButton" class="button">
+                    RESTART
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const restartButton = document.getElementById('restartButton').onclick = () => {
+            window.location.href = "../index.html";
+        }
+    </script>
 </body>
 </html>
