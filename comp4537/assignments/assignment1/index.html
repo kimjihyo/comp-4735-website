@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Assignment1</title>
+</head>
+<body>
+    <div id="container">
+        <div id="scoreBoard">
+            <div id="scoreRow">
+                <div id="scoreLabel" class="scoreText">Score: </div>
+                <div id="score" class="scoreText">0</div>
+            </div>
+            <div id="terminateButton">
+                Terminate
+            </div>
+        </div>
+        <div id="grid">
+        </div>
+        <div class="modal">
+            <div class="modalContentView">
+                <div class="contentRow">
+                    Are you sure you want to terminate?
+                </div>
+                <div class="actionRow">
+                    <div id="terminateButtonInModal" class="actionButton">Terminate</div>
+                    <div id="resumeButton" class="actionButton">Resume</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let gameManager = new GameManager();
+        gameManager.startOver();
+
+        document.getElementById('terminateButton').onclick = () => {
+            toggleModal(true);
+        }
+
+        document.getElementById('resumeButton').onclick = () => {
+            toggleModal(false);
+        }
+
+        document.getElementById('terminateButtonInModal').onclick = () => {
+            // document.cookie = `score=${gameManager.globalScore}`;
+            setCookie('score', gameManager.globalScore, 1);
+            window.location.href = './summary/index.html';
+        }
+    </script>
+</body>
+</html>
