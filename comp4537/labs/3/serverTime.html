@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab3</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        margin: 1rem 0;
+        display: inline-block;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1em;
+        height: 100vh;
+    }
+    #nameField {
+        margin-bottom: 1rem;
+        padding: 5px 10px;
+    }
+    #submitButton {
+        padding: 5px 10px;
+    }
+    .inputContainer {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="inputContainer">
+            <input id="nameField" type="text" placeholder="Enter your name">
+            <input id="submitButton" type="button" value="Click me!">
+        </div>
+        <p id="resultParagraph"></p>
+    </div>
+    <script>
+        const nameField = document.getElementById('nameField');
+        const submitButton = document.getElementById('submitButton');
+        const resultParagraph = document.getElementById('resultParagraph');
+
+        submitButton.onclick = () => {
+            console.log("button clicked");
+            const name = nameField.value;
+            if (name !== '') {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange= () => {
+                    if (xhttp.readyState === 4 && xhttp.status === 200) {
+                        resultParagraph.innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open('GET', `http://localhost:8081/?name=${name}`, true);
+                xhttp.send();
+            }
+        }
+    </script>
+</body>
+</html>
