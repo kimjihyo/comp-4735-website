@@ -57,7 +57,7 @@
                         resultParagraph.innerHTML = xhttp.responseText;
                     }
                 }
-                xhttp.open('GET', `http://localhost:8081/?name=${name}`, true);
+                xhttp.open('GET', `http://ec2-34-221-213-252.us-west-2.compute.amazonaws.com:3000/?name=${name}`, true);
                 xhttp.send();
             }
         }
