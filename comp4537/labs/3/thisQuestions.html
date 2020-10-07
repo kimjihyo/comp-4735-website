@@ -3,9 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lab3 Questions</title>
 </head>
 <body>
-    Hello
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+        .question {
+            padding: 20px;
+        }
+        .red-text {
+            color: red;
+        }
+        .blue-text {
+            color: blue;
+        }
+        .code-snippet {
+            margin: 10px 0px;
+        }
+    </style>
+    <a href="/index.html">Home</a>
+    <div class="question">
+        <span>1) Which one of the followings is the correct way of initializing the member variables of Person class</span>
+        <p class="code-snippet">
+            <h6>1.</h6>
+            <span>function</span> Person(name, age) {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>this</span>.name = name;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>this</span>.age = age;<br/>
+            }
+            <h6>2.</h6>
+            <span>function</span> Person(name, age) {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>self</span>.name = name;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>self</span>.age = age;<br/>
+            }
+            <h6>3.</h6>
+            <span>function</span> Person(name, age) {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>let</span> name = name;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span>let</span> age = age;<br/>
+            }
+            <h6>4.</h6>
+            <span>function</span> Person(name, age) {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;name = name;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;age = age;<br/>
+            }
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="22" name="q"/>
+                <label for="22">1</label>
+            </div>
+            <div>
+                <input type="radio" value="33" name="q"/>
+                <label for="33">2</label>
+            </div>
+            <div>
+                <input type="radio" value="44" name="q"/>
+                <label for="44">3</label>
+            </div>
+            <div>
+                <input type="radio" value="24" name="q"/>
+                <label for="24">4</label>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <span>2) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span>const</span> student = { <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;name: 'Some Name',<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;foo: <span>function</span>() { <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>console</span>.log(this.name); <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            } <br/>
+            student.foo();
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q2"/>
+                <label for="1">undefined</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q2"/>
+                <label for="2">Nothing printed</label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q2"/>
+                <label for="3">Uncaught Reference Error, name is not declared</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q2"/>
+                <label for="4">Some Name</label>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <span>3) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span>&lt;script&gt;</span><br/>
+            console.log(this);<br/>
+            <span>&lt;&sol;script&gt;</span>
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q3"/>
+                <label for="1">[object Window]</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q3"/>
+                <label for="2">
+                    undefined
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q3"/>
+                <label for="3">Uncaught Reference Error, this is not declared.</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q3"/>
+                <label for="4">null</label>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <span>4) What is the correct definition of the keyword "this"?</span>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q4"/>
+                <label for="1">
+                    In a method, this refers to the global object.
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q4"/>
+                <label for="2">
+                    Alone, this referes to the owner object.
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q3"/>
+                <label for="3">
+                    In a function, in strict mode, this is undefined.
+                </label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q3"/>
+                <label for="4">
+                    Methods like call(), and apply() only refers to the global object.
+                </label>
+            </div>
+        </div>
+    </div>
+        <div class="question">
+        <span>5) What would be the output of this script?</span>
+        <p class="code-snippet">
+            <span>const</span> student = { <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;name: 'Some Name',<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;foo: <span>function</span>() { <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>return</span> this; <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            } <br/>
+            console.log(student.foo());
+        </p>
+        <div class="answer">
+            <div>
+                <input type="radio" value="1" name="q5"/>
+                <label for="1">[object Window]</label>
+            </div>
+            <div>
+                <input type="radio" value="2" name="q5"/>
+                <label for="2">{name: 'Some Name', foo: f}</label>
+            </div>
+            <div>
+                <input type="radio" value="3" name="q5"/>
+                <label for="3">undefined</label>
+            </div>
+            <div>
+                <input type="radio" value="4" name="q5"/>
+                <label for="4">null</label>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
