@@ -28,7 +28,20 @@
         const restartButton = document.getElementById('restartButton');
         const submitButton = document.getElementById('submitButton');
         submitButton.onclick = () => {
-            window.location.href = '../leaderboard/index.html';
+            const name = prompt('Please enter your name');
+            fetch('http://ec2-34-221-213-252.us-west-2.compute.amazonaws.com:8010/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    score: score ? score : 0,
+                })
+            })
+            .then(_ => {
+                window.location.href = '../leaderboard/index.html';
+            })    
         }
         restartButton.onclick = () => {
             window.location.href = '../index.html';

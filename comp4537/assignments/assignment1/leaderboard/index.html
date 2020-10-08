@@ -12,10 +12,10 @@
             <div class="titleRow">
                 Leaderboard
             </div>
-            <div class="rankingRow">
+            <div id="rankingRow" class="rankingRow">
                 <div class="individualRankingRow">
-                    <div class="rankingNameText" style="font-weight: bold;">Name</div>
-                    <div class="rankingScoreText" style="font-weight: bold;">Score</div>
+                    <div class="rankingNameText bold" style="font-weight: bold;">Name</div>
+                    <div class="rankingScoreText bold" style="font-weight: bold;">Score</div>
                 </div>
                 <hr />
             </div>
@@ -30,6 +30,29 @@
         const restartButton = document.getElementById('restartButton').onclick = () => {
             window.location.href = "../index.html";
         }
+        const rankingRow = document.getElementById('rankingRow');
+        fetch('http://ec2-34-221-213-252.us-west-2.compute.amazonaws.com:8010/scores')
+        .then(rawRes => {
+            return rawRes.json();
+        })
+        .then(jsonRes => {
+            for (scoreObj of jsonRes) {
+                const row = document.createElement('div');
+                const nameText = document.createElement('div');
+                const scoreText = document.createElement('div');
+
+                nameText.className = 'rankingNameText bold';
+                scoreText.className = 'rankingScoreText bold';
+                row.className = 'individualRankingRow';
+
+                nameText.innerHTML = scoreObj.name;
+                scoreText.innerHTML = scoreObj.score;
+
+                row.appendChild(nameText);
+                row.appendChild(scoreText);
+                rankingRow.appendChild(row);
+            }
+        });
     </script>
 </body>
 </html>
