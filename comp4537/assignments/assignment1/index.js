@@ -95,8 +95,6 @@ class GameManager {
       this.score += 1;
       if (this.score === this.nAnswers) {
         setTimeout(() => {
-          this.currentGridDegree += 90;
-          rotateGrid(this.currentGridDegree);
           this.markCellsWhite();
           setTimeout(() => this.startOver(), 1200);
         }, 200)
@@ -124,7 +122,7 @@ class GameManager {
     this.currentGrid = newGrid;
   }
 
-  showAnswers = () => {
+  showAnswers = (onCompletion) => {
     for (let y = 0; y < this.currentGridSizeY; y++) {
       for (let x = 0; x < this.currentGridSizeX; x++) {
         let id = `col${y}-${x}`;
@@ -140,6 +138,7 @@ class GameManager {
       for (const col of cols) {
         col.className = "col";
       }
+      onCompletion();
     }, 1500)
   }
 
@@ -174,7 +173,10 @@ class GameManager {
     this.score = 0;
     this.generateGrid();
     this.drawGrid();
-    this.showAnswers();
+    this.showAnswers(() => {
+      this.currentGridDegree += 90;
+      rotateGrid(this.currentGridDegree);
+    });
     this.isClearedWithoutError = true;
   }
 }
