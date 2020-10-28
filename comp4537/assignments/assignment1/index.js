@@ -88,6 +88,9 @@ class GameManager {
       col.className = 'col wrong click';
       this.isClearedWithoutError = false;
       this.globalScore -= 1;
+      if (this.globalScore <= 0 && this.onGameOver !== null) {
+        this.onGameOver();
+      }
     } else {
       if (col.className !== 'col correct') {}
       col.className = 'col correct click';
@@ -148,6 +151,8 @@ class GameManager {
       col.className = "col white";
     }
   }
+
+  onGameOver = null;
 
   startOver = () => {
     if (this.isClearedWithoutError) {

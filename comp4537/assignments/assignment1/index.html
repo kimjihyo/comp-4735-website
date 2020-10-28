@@ -37,6 +37,11 @@
         let gameManager = new GameManager();
         gameManager.startOver();
 
+        const handleTermination = () => {
+            setCookie('score', gameManager.globalScore, 1);
+            window.location.href = './summary/index.html';
+        }
+
         document.getElementById('terminateButton').onclick = () => {
             toggleModal(true);
         }
@@ -47,8 +52,11 @@
 
         document.getElementById('terminateButtonInModal').onclick = () => {
             // document.cookie = `score=${gameManager.globalScore}`;
-            setCookie('score', gameManager.globalScore, 1);
-            window.location.href = './summary/index.html';
+            handleTermination();
+        }
+
+        gameManager.onGameOver = () => {
+            handleTermination();
         }
     </script>
 </body>
